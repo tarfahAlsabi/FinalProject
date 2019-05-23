@@ -1,8 +1,5 @@
 package com.udacity.gradle.builditbigger;
 
-import com.udacity.gradle.builditbigger.MainActivity;
-import com.udacity.gradle.builditbigger.MainActivity.EndpointsAsyncTask;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,8 +7,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 
-import java.util.concurrent.TimeUnit;
-
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 
 @RunWith(RobolectricTestRunner.class)
@@ -31,7 +27,7 @@ public class unitTest {
 
            String joke=  mainActivity.new EndpointsAsyncTask().execute().get();
            assertNotNull(joke);
-
+           assertNotEquals("error message","Error in retrieve the joke",joke);
         }catch (Exception e){
             e.printStackTrace();
             Assert.fail();

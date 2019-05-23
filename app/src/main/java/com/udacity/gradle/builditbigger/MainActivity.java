@@ -28,13 +28,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        Button button = findViewById(R.id.tell_joke_btn);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                tellJoke(v);
-//            }
-//        });
         progressBar=findViewById(R.id.progressBar_tellJoke);
     }
 
@@ -70,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
         fragment.setJoke(result);
         fragment.setContext(this);
         getSupportFragmentManager().beginTransaction().replace(R.id.display_joke_frame,fragment).commit();
-//        Toast.makeText(this, result, Toast.LENGTH_LONG).show();
     }
 
     public class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
@@ -100,9 +92,9 @@ public class MainActivity extends AppCompatActivity {
             try {
                 return myApiService.getJoke().execute().getData();
             } catch (IOException e) {
-                return e.getMessage();
+                return "Error in retrieve the joke";
             }
-//            return new Jokes().getJoke();
+
         }
 
         @Override

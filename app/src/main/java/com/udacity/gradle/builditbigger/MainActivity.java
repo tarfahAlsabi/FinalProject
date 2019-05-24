@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 return myApiService.getJoke().execute().getData();
             } catch (IOException e) {
-                return "Error in retrieve the joke";
+                return "" ;
             }
 
         }

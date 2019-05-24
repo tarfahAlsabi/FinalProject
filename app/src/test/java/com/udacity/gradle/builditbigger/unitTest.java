@@ -27,7 +27,7 @@ public class unitTest {
 
            String joke=  mainActivity.new EndpointsAsyncTask().execute().get();
            assertNotNull(joke);
-           assertNotEquals("error message","Error in retrieve the joke",joke);
+           assertNotEquals("error message","",joke);
         }catch (Exception e){
             e.printStackTrace();
             Assert.fail();

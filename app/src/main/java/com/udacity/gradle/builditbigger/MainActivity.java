@@ -3,13 +3,10 @@ package com.udacity.gradle.builditbigger;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 
 import com.example.androiddisplayjokes.DisplayJokeFragment;
@@ -55,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        Log.i("on click","button clicked");
         new EndpointsAsyncTask().execute();
     }
     public void displayjoke(String result){
@@ -92,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 return myApiService.getJoke().execute().getData();
             } catch (IOException e) {
+                e.printStackTrace();
                 return "" ;
             }
 

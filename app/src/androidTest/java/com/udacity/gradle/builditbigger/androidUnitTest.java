@@ -38,6 +38,7 @@ public class androidUnitTest {
             assertNotEquals("Exception message","",joke);
         }catch (Exception e){
             e.printStackTrace();
+            fail();
         }
 
     }

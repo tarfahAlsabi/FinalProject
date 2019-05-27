@@ -2,6 +2,8 @@ package com.udacity.gradle.builditbigger;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -67,7 +69,12 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            progressBar.setVisibility(View.VISIBLE);
+            new Handler(Looper.getMainLooper()).post(new Runnable(){
+                @Override
+                public void run() {
+                    progressBar.setVisibility(View.VISIBLE);
+                }
+            });
         }
 
         @Override
